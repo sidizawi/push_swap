@@ -31,6 +31,7 @@ struct stacks_s
 {
 	st_t	*sta;
 	st_t	*stb;
+	int		max;
 };
 
 typedef struct stacks_s stacks_t;
@@ -46,5 +47,7 @@ void	ft_check_digit(char *av[], int ac);
 int		ft_strcmp(const char *s1, const char *s2);
 int		ft_isdigit(int c);
 int		ft_atoi(char *s);
+int		ft_abs(int nbr);
+void		ft_add_to_stack(st_t **st, int nbr);
 
 #endif

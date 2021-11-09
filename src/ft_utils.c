@@ -61,3 +61,10 @@ int		ft_atoi(char *s)
 		ft_exit();
 	return (res);
 }
+
+int		ft_abs(int nbr)
+{
+	if (nbr < 0)
+		return (nbr * -1);
+	return (nbr);
+}

@@ -1,55 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check.c                                         :+:      :+:    :+:   */
+/*   ft_stack.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: szawi <szawi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/09 11:26:35 by szawi             #+#    #+#             */
-/*   Updated: 2021/11/09 11:26:35 by szawi            ###   ########.fr       */
+/*   Created: 2021/11/09 20:05:39 by szawi             #+#    #+#             */
+/*   Updated: 2021/11/09 20:05:39 by szawi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-void		ft_check_duplicate(char *av[], int ac)
+static st_t	*ft_new_stack(int nbr, st_t *prev)
 {
-	int i;
-	int j;
+	st_t	*new;
 
-	if (!av || !av[0] || !ac)
+	new = (st_t*)malloc(sizeof(st_t));
+	if (!new)
 		ft_exit();
-	i = 1;
-	while (i < ac)
-	{
-		j = 0;
-		while (j < i)
-		{
-			if (ft_strcmp(av[i], av[j]))
-				ft_exit();
-			j++;
-		}
-		i++;
-	}
+	new->val = nbr;
+	new->next = NULL;
+	new->prev = prev;
+	return (new);
 }
 
-void		ft_check_digit(char *av[], int ac)
+void		ft_add_to_stack(st_t **st, int nbr)
 {
-	int		i;
-	size_t	j;
-	size_t	size;
+	st_t	*curr;
 
-	i = -1;
-	if (!av || !av[0] || !ac)
+	if (!st)
 		ft_exit();
-	while (++i < ac)
+	curr = *st;
+	if (!curr)
+		*st = ft_new_stack(nbr, NULL);
+	else
 	{
-		size = ft_strlen(av[i]);
-		j = -1;
-		while (++j < size)
-		{
-			if (!ft_isdigit(av[i][j]))
-				ft_exit();
-		}
+		while (curr && curr->next)
+			curr = curr->next;
+		curr->next = ft_new_stack(nbr, curr);
 	}
 }

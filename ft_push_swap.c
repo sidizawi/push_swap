@@ -12,12 +12,35 @@
 
 #include "ft_push_swap.h"
 
+stacks_t	*ft_init(char *av, int ac)
+{
+	stacks_t	*st;
+	int			i;
+	int			nbr;
+	int			max;
+
+	st = (stacks_t*)malloc(sizeof(stacks_t));
+	st->sta = NULL;
+	st->stb = NULL;
+	i = -1;
+	max = 0;
+	while (++i < ac)
+	{
+		nbr = ft_atoi(av[i]);
+		ft_add_to_stack(&st->sta, nbr);
+		// to refactor bellow
+		if (ft_abs(nbr) > max)
+			max = nbr;
+	}
+	st->max = max;
+	return (st);
+}
+
 int main(int ac, char *av[])
 {
-	ft_print("Hi there\n", 1);
-	printf("av[1] = %d\n", ft_atoi(av[1]));
-	ft_check_duplicate(&av[1], ac - 1);
-	ft_print("ok duplicate\n", 1);
-	ft_check_digit(&av[1], ac - 1);
-	ft_print("ok digit\n", 1);
+	stacks_t	*st;
+
+	st = ft_init(&av[1], ac - 1);
+	ft_clear_stacks(st);
+	return (0);
 }
