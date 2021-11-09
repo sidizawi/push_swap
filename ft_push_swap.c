@@ -15,6 +15,7 @@
 int main(int ac, char *av[])
 {
 	ft_print("Hi there\n", 1);
+	printf("av[1] = %d\n", ft_atoi(av[1]));
 	ft_check_duplicate(&av[1], ac - 1);
 	ft_print("ok duplicate\n", 1);
 	ft_check_digit(&av[1], ac - 1);

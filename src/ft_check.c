@@ -12,30 +12,6 @@
 
 #include "ft_push_swap.h"
 
-void		ft_exit()
-{
-	ft_print("Error\n", 2);
-	exit(1);
-}
-
-static int	ft_strcmp(const char *s1, const char *s2)
-{
-	int	i;
-
-	i = 0;
-	if (!s1 || !s2)
-		return (0);
-	while(s1[i] && s2[i])
-	{
-		if (s1[i] != s2[i])
-			return (0);
-		i++;
-	}
-	if (s1[i] || s2[i])
-		return (0);
-	return (1);
-}
-
 void		ft_check_duplicate(char *av[], int ac)
 {
 	int i;
@@ -55,11 +31,6 @@ void		ft_check_duplicate(char *av[], int ac)
 		}
 		i++;
 	}
-}
-
-static int	ft_isdigit(int c)
-{
-	return (c >= '0' && c <= '9');
 }
 
 void		ft_check_digit(char *av[], int ac)
@@ -82,3 +53,5 @@ void		ft_check_digit(char *av[], int ac)
 		}
 	}
 }
+
+

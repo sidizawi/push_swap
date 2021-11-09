@@ -18,27 +18,33 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-struct stack_s
+struct st_s
 {
-	int				val;
-	struct s_stack	*next;
-	struct s_stack	*prev;
+	int			val;
+	struct st_s	*next;
+	struct st_s	*prev;
 };
 
-typedef struct stack_s stack_t;
+typedef struct st_s st_t;
 
-struct all_s
+struct stacks_s
 {
-	stack_t	*sa;
-	stack_t	*sb;
+	st_t	*sta;
+	st_t	*stb;
 };
 
-typedef struct all_s all_st;
+typedef struct stacks_s stacks_t;
+
+# define INT_MAX 2147483647
+# define INT_MIN -2147483648
 
 void	ft_print(const char *str, int fd);
 void	ft_check_duplicate(char *av[], int ac);
 void	ft_exit();
 size_t	ft_strlen(const char *str);
 void	ft_check_digit(char *av[], int ac);
+int		ft_strcmp(const char *s1, const char *s2);
+int		ft_isdigit(int c);
+int		ft_atoi(char *s);
 
 #endif
