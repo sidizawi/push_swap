@@ -12,7 +12,7 @@
 
 #include "ft_push_swap.h"
 
-static size_t ft_strlen(const char *str)
+size_t	ft_strlen(const char *str)
 {
 	size_t	i;
 

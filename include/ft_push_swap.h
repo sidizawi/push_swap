@@ -36,5 +36,9 @@ struct all_s
 typedef struct all_s all_st;
 
 void	ft_print(const char *str, int fd);
+void	ft_check_duplicate(char *av[], int ac);
+void	ft_exit();
+size_t	ft_strlen(const char *str);
+void	ft_check_digit(char *av[], int ac);
 
 #endif
