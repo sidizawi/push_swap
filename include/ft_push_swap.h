@@ -50,5 +50,6 @@ int		ft_atoi(char *s);
 int		ft_abs(int nbr);
 void	ft_add_to_stack(st_t **st, int nbr);
 void	ft_clear_stacks(stacks_t **st);
+int		ft_issorted(st_t *st);
 
 #endif

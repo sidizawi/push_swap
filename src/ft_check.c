@@ -12,7 +12,7 @@
 
 #include "ft_push_swap.h"
 
-void		ft_check_duplicate(char *av[], int ac)
+void	ft_check_duplicate(char *av[], int ac)
 {
 	int i;
 	int j;
@@ -33,7 +33,7 @@ void		ft_check_duplicate(char *av[], int ac)
 	}
 }
 
-void		ft_check_digit(char *av[], int ac)
+void	ft_check_digit(char *av[], int ac)
 {
 	int		i;
 	size_t	j;
@@ -52,4 +52,18 @@ void		ft_check_digit(char *av[], int ac)
 				ft_exit();
 		}
 	}
+}
+
+int		ft_issorted(st_t *st)
+{
+	st_t	*curr;
+
+	curr = st;
+	while (curr)
+	{
+		if (curr->next && curr->val > curr->next->val)
+			return (0);
+		curr = curr->next;
+	}
+	return (1);
 }
