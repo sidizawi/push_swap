@@ -12,7 +12,7 @@
 
 #include "ft_push_swap.h"
 
-stacks_t	*ft_init(char *av, int ac)
+stacks_t	*ft_init(char *av[], int ac)
 {
 	stacks_t	*st;
 	int			i;
@@ -40,7 +40,12 @@ int main(int ac, char *av[])
 {
 	stacks_t	*st;
 
+	if (ac == 1)
+		ft_exit();
+	ft_check_duplicate(&av[1], ac - 1);
+	ft_check_digit(&av[1], ac - 1);
 	st = ft_init(&av[1], ac - 1);
-	ft_clear_stacks(st);
+	ft_print("Hi there\n", 1);
+	ft_clear_stacks(&st);
 	return (0);
 }

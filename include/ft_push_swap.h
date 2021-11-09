@@ -48,6 +48,7 @@ int		ft_strcmp(const char *s1, const char *s2);
 int		ft_isdigit(int c);
 int		ft_atoi(char *s);
 int		ft_abs(int nbr);
-void		ft_add_to_stack(st_t **st, int nbr);
+void	ft_add_to_stack(st_t **st, int nbr);
+void	ft_clear_stacks(stacks_t **st);
 
 #endif

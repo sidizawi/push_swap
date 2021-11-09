@@ -41,3 +41,22 @@ void		ft_add_to_stack(st_t **st, int nbr)
 		curr->next = ft_new_stack(nbr, curr);
 	}
 }
+
+void		ft_clear_stacks(stacks_t **st)
+{
+	st_t	*curr;
+
+	if (!st || !*st)
+		ft_exit();
+	curr = (*st)->sta;
+	while (curr && curr->next)
+		curr = curr->next;
+	while (curr && curr->prev)
+	{
+		curr = curr->prev;
+		free(curr->next);
+	}
+	if (curr)
+		free(curr);
+	free(*st);
+}
