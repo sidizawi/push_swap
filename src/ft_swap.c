@@ -22,7 +22,7 @@ static void	ft_swap_stack(st_t **st, char *str)
 	ft_print(str, 1);
 }
 
-void	ft_swap(stacks_t **st, int a, int b)
+void		ft_swap(stacks_t **st, int a, int b)
 {
 	if (a && b)
 	{

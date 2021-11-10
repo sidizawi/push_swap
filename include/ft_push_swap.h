@@ -54,5 +54,7 @@ void	ft_add_to_stack(st_t **st, int nbr);
 void	ft_clear_stacks(stacks_t **st);
 int		ft_issorted(st_t *st);
 void	ft_swap(stacks_t **st, int a, int b);
+void	ft_rotate(stacks_t **st, int a, int b);
+void	ft_reverse_rotate(stacks_t **st, int a, int b);
 
 #endif
