@@ -34,3 +34,16 @@ void		ft_swap(stacks_t **st, int a, int b)
 	else
 		ft_swap_stack(&(*st)->stb, "sb\n");
 }
+
+void		ft_swap_checker(stacks_t **st, int a, int b)
+{
+	if (a && b)
+	{
+		ft_swap_stack(&(*st)->sta, "");
+		ft_swap_stack(&(*st)->stb, "");
+	}
+	else if (a)
+		ft_swap_stack(&(*st)->sta, "");
+	else
+		ft_swap_stack(&(*st)->stb, "");
+}

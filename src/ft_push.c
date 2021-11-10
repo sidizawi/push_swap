@@ -42,3 +42,19 @@ void		ft_push_b(stacks_t **st)
 	(*st)->acount--;
 	(*st)->bcount++;
 }
+
+void		ft_push_checker(stacks_t **st, int a, int b)
+{
+	if (a)
+	{
+		ft_push(&(*st)->stb, &(*st)->sta, "");
+		(*st)->acount++;
+		(*st)->bcount--;
+	}
+	else if (b)
+	{
+		ft_push(&(*st)->sta, &(*st)->stb, "");
+		(*st)->acount--;
+		(*st)->bcount++;
+	}
+}

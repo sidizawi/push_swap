@@ -41,3 +41,16 @@ void		ft_rotate(stacks_t **st, int a, int b)
 	else
 		ft_rotate_stack(&(*st)->stb, "rb\n");
 }
+
+void		ft_rotate_checker(stacks_t **st, int a, int b)
+{
+	if (a && b)
+	{
+		ft_rotate_stack(&(*st)->sta, "");
+		ft_rotate_stack(&(*st)->stb, "");
+	}
+	else if (a)
+		ft_rotate_stack(&(*st)->sta, "");
+	else
+		ft_rotate_stack(&(*st)->stb, "");
+}

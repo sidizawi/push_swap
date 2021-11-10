@@ -12,31 +12,6 @@
 
 #include "ft_push_swap.h"
 
-stacks_t	*ft_init(char *av[], int ac)
-{
-	stacks_t	*st;
-	int			i;
-	int			nbr;
-	int			max;
-
-	st = (stacks_t*)malloc(sizeof(stacks_t));
-	st->sta = NULL;
-	st->stb = NULL;
-	st->acount = ac;
-	st->bcount = 0;
-	i = -1;
-	max = 0;
-	while (++i < ac)
-	{
-		nbr = ft_atoi(av[i]);
-		ft_add_to_stack(&st->sta, nbr);
-		if (ft_abs(nbr) > max)
-			max = ft_abs(nbr);
-	}
-	st->max = max;
-	return (st);
-}
-
 void	ft_print_stacks(stacks_t *st)
 {
 	st_t	*sta;
@@ -70,7 +45,7 @@ void	ft_print_stacks(stacks_t *st)
 	}
 }
 
-int			main(int ac, char *av[])
+int		main(int ac, char *av[])
 {
 	stacks_t	*st;
 
