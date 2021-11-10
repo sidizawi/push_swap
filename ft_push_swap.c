@@ -22,13 +22,14 @@ stacks_t	*ft_init(char *av[], int ac)
 	st = (stacks_t*)malloc(sizeof(stacks_t));
 	st->sta = NULL;
 	st->stb = NULL;
+	st->acount = ac;
+	st->bcount = 0;
 	i = -1;
 	max = 0;
 	while (++i < ac)
 	{
 		nbr = ft_atoi(av[i]);
 		ft_add_to_stack(&st->sta, nbr);
-		// to refactor bellow
 		if (ft_abs(nbr) > max)
 			max = ft_abs(nbr);
 	}

@@ -32,6 +32,8 @@ struct stacks_s
 	st_t	*sta;
 	st_t	*stb;
 	int		max;
+	int		acount;
+	int		bcount;
 };
 
 typedef struct stacks_s stacks_t;
@@ -51,5 +53,6 @@ int		ft_abs(int nbr);
 void	ft_add_to_stack(st_t **st, int nbr);
 void	ft_clear_stacks(stacks_t **st);
 int		ft_issorted(st_t *st);
+void	ft_swap(stacks_t **st, int a, int b);
 
 #endif

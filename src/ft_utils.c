@@ -57,7 +57,7 @@ int		ft_atoi(char *s)
 	while (*s >= '0' && *s <= '9' && res <= INT_MAX)
 		res = res * 10 + *s++ - '0';
 	res *= n;
-	if (*s || (n < 0 && res < INT_MIN) || (n > 0 && res > INT_MAX))
+	if (*s || res < INT_MIN || res > INT_MAX)
 		ft_exit();
 	return (res);
 }
