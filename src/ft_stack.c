@@ -12,7 +12,7 @@
 
 #include "ft_push_swap.h"
 
-static st_t	*ft_new_stack(int nbr, st_t *prev)
+static st_t	*ft_new_stack(int nbr, st_t **prev)
 {
 	st_t	*new;
 
@@ -21,7 +21,10 @@ static st_t	*ft_new_stack(int nbr, st_t *prev)
 		ft_exit();
 	new->val = nbr;
 	new->next = NULL;
-	new->prev = prev;
+	if (!prev)
+		new->prev = NULL;
+	else
+		new->prev = *prev;
 	return (new);
 }
 
@@ -38,25 +41,36 @@ void		ft_add_to_stack(st_t **st, int nbr)
 	{
 		while (curr && curr->next)
 			curr = curr->next;
-		curr->next = ft_new_stack(nbr, curr);
+		curr->next = ft_new_stack(nbr, &curr);
+	}
+}
+
+static void	ft_clear(st_t **st)
+{
+	while (st && *st)
+	{
+		if ((*st)->next)
+		{
+			*st = (*st)->next;
+			free((*st)->prev);
+			(*st)->prev = NULL;
+		}
+		else
+		{
+			free(*st);
+			*st = NULL;
+		}
 	}
 }
 
 void		ft_clear_stacks(stacks_t **st)
 {
-	st_t	*curr;
-
-	if (!st || !*st)
-		ft_exit();
-	curr = (*st)->sta;
-	while (curr && curr->next)
-		curr = curr->next;
-	while (curr && curr->prev)
-	{
-		curr = curr->prev;
-		free(curr->next);
-	}
-	if (curr)
-		free(curr);
+	if ((*st)->sta)
+		ft_clear(&(*st)->sta);
+	else if ((*st)->stb)
+		ft_clear(&(*st)->stb);
+	
+	if ((*st)->stb)
+		ft_clear_stacks(st);
 	free(*st);
 }

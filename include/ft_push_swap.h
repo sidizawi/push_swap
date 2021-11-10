@@ -56,5 +56,7 @@ int		ft_issorted(st_t *st);
 void	ft_swap(stacks_t **st, int a, int b);
 void	ft_rotate(stacks_t **st, int a, int b);
 void	ft_reverse_rotate(stacks_t **st, int a, int b);
+void	ft_push_a(stacks_t **st);
+void	ft_push_b(stacks_t **st);
 
 #endif
