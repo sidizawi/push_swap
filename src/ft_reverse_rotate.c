@@ -43,7 +43,7 @@ void		ft_reverse_rotate(stacks_t **st, int a, int b)
 		ft_reverse_stack(&(*st)->stb, "rrb\n");
 }
 
-void		ft_reverse_cheker(stacks_t **st, int a, int b)
+void		ft_reverse_checker(stacks_t **st, int a, int b)
 {
 	if (a && b)
 	{

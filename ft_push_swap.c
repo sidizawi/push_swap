@@ -48,21 +48,24 @@ void	ft_print_stacks(stacks_t *st)
 int		main(int ac, char *av[])
 {
 	stacks_t	*st;
+	int			div;
 
 	if (ac == 1)
 		ft_exit();
 	ft_check_duplicate(&av[1], ac - 1);
 	ft_check_digit(&av[1], ac - 1);
 	st = ft_init(&av[1], ac - 1);
-	printf("max = %d\n", st->max);
 	ft_print_stacks(st);
-	ft_reverse_rotate(&st, 1, 0);
+	if (!ft_issorted(st->sta))
+	{
+		div = 1;
+		while (st->max / div)
+		{
+			ft_sort(&st, div);
+			div *= 10;
+		}
+	}
 	ft_print_stacks(st);
-	ft_swap(&st, 1, 0);
-	ft_print_stacks(st);
-	// if (!ft_issorted(st->sta))
-	// 	ft_sort(&st);
-	printf("is sorted = %d\n", ft_issorted(st->sta));
 	ft_clear_stacks(&st);
 	return (0);
 }
